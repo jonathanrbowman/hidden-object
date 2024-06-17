@@ -15,14 +15,14 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() {
             loadingEl.remove();
         }, 1600);
-    }, 5000);
+    }, 3000);
 
     const panZoomInstance = Panzoom(svgElement, {
         contain: "outside",
         center: true,
         panOnlyWhenZoomed: true,
         minScale: 1,
-        maxScale: 8,
+        maxScale: 10,
     });
 
     svgContainer.addEventListener("touchstart", panZoomInstance.handleTouchStart, { passive: true });
@@ -73,8 +73,8 @@ function randomizeHiddenObjects() {
     const svg = document.querySelector("#svg-container > svg");
     const svgWidth = svg.viewBox.baseVal.width;
     const svgHeight = svg.viewBox.baseVal.height;
-    const minSize = 0.85;
-    const maxSize = 1.25;
+    const minSize = 0.35;
+    const maxSize = 1;
 
     hiddenObjects.forEach(object => {
         const bbox = object.getBBox();
@@ -86,6 +86,6 @@ function randomizeHiddenObjects() {
         const randomX = Math.random() * maxX;
         const randomY = Math.random() * maxY;
 
-        object.setAttribute("transform", `translate(${randomX}, ${randomY})`);
+        object.setAttribute("transform", `translate(${randomX}, ${randomY}) scale(${randomScale})`);
     });
 }

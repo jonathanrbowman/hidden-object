@@ -69,19 +69,12 @@ function handleReset() {
 }
 
 function randomizeHiddenObjects() {
-    const objectsToMake = 15;
     const hiddenObjects = document.querySelectorAll("#hidden-objects > g");
     const svg = document.querySelector("#svg-container > svg");
     const svgWidth = svg.viewBox.baseVal.width;
     const svgHeight = svg.viewBox.baseVal.height;
     const minSize = 0.85;
     const maxSize = 1.25;
-    let iterator = 0;
-
-    while (iterator < objectsToMake) {
-        iterator ++;
-        const
-    }
 
     hiddenObjects.forEach(object => {
         const bbox = object.getBBox();
